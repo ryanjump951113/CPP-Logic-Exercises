@@ -9,7 +9,7 @@ using namespace std;
 
 int main(void) {
     int n;
-    // 使用位元左移快速計算 2^n，避免浮點數 pow() 運算帶來的效能損耗
+   //Use bitwise left shift to quickly compute 2^n, avoiding the overhead of floating-point pow().
     while (cin >> n) {
         int possible = 1 << n; 
         
