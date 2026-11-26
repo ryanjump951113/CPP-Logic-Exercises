@@ -1,3 +1,10 @@
+/**
+ * Problem: Robot Path (ZeroJudge e287 / APCS)
+ * Description: Starting from the globally smallest cell, greedily move to the
+ *              adjacent unvisited cell with the minimum value until trapped.
+ * Technique: 2D Grid Simulation, Sentinel Boundary Padding, Greedy Search, In-Place Marking.
+ */
+
 #include<iostream>
 using namespace std;
 int main(void){
@@ -8,12 +15,13 @@ int main(void){
 	for(int i=0;i<=n+1;i++) a[i][0]=a[i][m+1]=-1;
 	for(int j=0;j<=m+1;j++) a[0][j]=a[n+1][j]=-1;
 		
-
+    // read the grid's number
 	for(int i=1;i<=n;i++){
 		for(int j=1;j<=m;j++){
 			cin>>a[i][j];
 		}
 	}
+	
 	int start_i,start_j;
 	int min_value=100000000;
 	
@@ -30,7 +38,7 @@ int main(void){
 	
 	bool canfind;
 	int now_i=start_i,now_j=start_j;
-	int ans=0;
+	long long ans=0;
 	int next_i,next_j;
 
 	//judge if the robot can arrive to the new target place
@@ -68,8 +76,10 @@ int main(void){
 			canfind=true;
 		
 		}
-		now_i=next_i;
-		now_j=next_j;
+		if (canfind) { 
+			now_i = next_i; 
+			now_j = next_j; 
+		}
 		
 	}while(canfind);
 	cout<<ans<<endl;
