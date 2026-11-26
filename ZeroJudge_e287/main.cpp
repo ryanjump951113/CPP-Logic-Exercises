@@ -10,12 +10,14 @@ using namespace std;
 int main(void){
 	int n,m;
 	cin>>n>>m;
+	//code can be used in g++.
+	//normally, we should give array  definite values.
 	int a[n+2][m+2]={};
-	// add another place for the edge
+	// add another place for the edge.
 	for(int i=0;i<=n+1;i++) a[i][0]=a[i][m+1]=-1;
 	for(int j=0;j<=m+1;j++) a[0][j]=a[n+1][j]=-1;
 		
-    // read the grid's number
+    // read the grid's number.
 	for(int i=1;i<=n;i++){
 		for(int j=1;j<=m;j++){
 			cin>>a[i][j];
@@ -25,7 +27,7 @@ int main(void){
 	int start_i,start_j;
 	int min_value=100000000;
 	
-	// find the smallest place to start
+	// find the smallest place to start.
 	for(int i=1;i<n+1;i++){
 		for(int j=1;j<m+1;j++){
 			if(a[i][j]<min_value&&a[i][j]!=-1){
@@ -41,7 +43,7 @@ int main(void){
 	long long ans=0;
 	int next_i,next_j;
 
-	//judge if the robot can arrive to the new target place
+	//judge if the robot can arrive to the new target place.
 	do{
 		canfind=false;
 		ans+=min_value;
